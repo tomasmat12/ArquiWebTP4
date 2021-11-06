@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.slf4j.Logger;
 
 import entities.Product;
-import services.ProductService;
+import servicios.ProductService;
 
 @RestController
 @RequestMapping("/product")

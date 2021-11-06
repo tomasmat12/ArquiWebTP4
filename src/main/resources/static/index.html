@@ -1,10 +1,97 @@
 <html>
 <head>
-
-
+<meta charset="ISO-8859-1">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+	integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+	crossorigin="anonymous">
+<title>TP Integrador 4</title>
 </head>
 <body>
+	<h2>Trabajo Practico Integrador 4, Arquitecturas Web </h2>
 
-<h1>Hola Clara</h1>
+	<div class="container mt-3 mb-3">
+		<h3> Agregar Cliente</h3>
+		<button type="button" class="btn btn-secondary" data-toggle="modal"
+			data-target="#addClient">Nuevo Cliente</button>
+	</div>
+	<div class="modal fade" id="addClient" tabindex="-1" role="dialog"
+		aria-labelledby="addCLient " aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Agregar
+						Cliente</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="form-group">
+							<label for="num-Book">Numero de Documento</label>
+							 <input type="text" class="form-control" id="dni" aria-describedby="unique-value">
+								 <small	id="unique-value" class="form-text text-muted"></small>
+						</div>
+						<div class="form-group">
+							<label for="num-doc"> Nombre </label> <input
+								type="number" class="form-control" id="name" required>
+						</div>
+						<div class="form-group">
+							<label for="lastname"> Apellido </label> <input type="text"
+								class="form-control" id="lastname" required>
+						</div>
+						
+						<div class="form-group">
+							<label for="city"> Direccion </label> <input type="text"
+								class="form-control" id="address" required>
+						</div>
+						<button type="button" id="add-Client" class="btn btn-primary"
+							data-dismiss="modal">Agregar</button>
+					</form>
+				</div>
+
+			</div>
+		</div>
+		
+	</div>
+	
+	
+	
+	
+	<div class="container mt-3 mb-3">
+		<h3> Agregar Producto</h3>
+		<button type="button" class="btn btn-secondary" data-toggle="modal"
+			data-target="#addProduct">Nuevo Producto</button>
+	</div>
+	<div class="container mt-3 mb-3">
+		<h3> Nueva Compra</h3>
+		<button type="button" class="btn btn-secondary" data-toggle="modal"
+			data-target="#addBill">Nueva Compra</button>
+	</div>
+	
+	
+	
+	
+	
+	
+	<script type="text/javascript"
+		src="http://momentjs.com/downloads/moment-with-locales.js"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script src="main.js"></script>
+	<!-- JS, Popper.js, and jQuery -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+		integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+		integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+		crossorigin="anonymous"></script>
+	
 </body>
 </html>

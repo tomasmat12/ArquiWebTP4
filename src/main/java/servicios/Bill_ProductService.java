@@ -1,4 +1,4 @@
-package services;
+package servicios;
 
 import java.util.List;
 
@@ -6,10 +6,10 @@ import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import Repositories.Bill_productRepository;
 import entities.Bill;
 import entities.Bill_Product;
 import entities.Product;
+import repositories.Bill_productRepository;
 
 public class Bill_ProductService {
 	@Autowired

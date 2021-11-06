@@ -2,12 +2,14 @@ package entities;
 
 import java.sql.Date;
 
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+
 
 @Entity
 public class Bill {
@@ -21,6 +23,9 @@ public class Bill {
 	private Client client;
 	private Date date;
 	private Long total;
+	//@OneToMany(fetch = FetchType.LAZY, mappedBy = "student", cascade = CascadeType.ALL)
+	//private List<Bill_Product> products;
+
 	
 	
 	public Bill(Client client, Date date, Long total) {

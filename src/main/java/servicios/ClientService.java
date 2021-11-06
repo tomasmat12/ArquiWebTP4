@@ -1,4 +1,4 @@
-package services;
+package servicios;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import entities.Client;
-import Repositories.ClientRepository;
+import repositories.ClientRepository;
 
 
 @Service

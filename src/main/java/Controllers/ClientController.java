@@ -17,7 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import entities.Client;
-import services.ClientService;
+import servicios.ClientService;
+//import services.ClientService;
 
 @RestController
 @RequestMapping("/client")
@@ -33,11 +34,15 @@ private static Logger LOG = LoggerFactory.getLogger(ClientController.class);
 	}
 	
 	@PostMapping("")
-	public ResponseEntity<Client> addProduct(@RequestBody Client c) {
+	public ResponseEntity<Client> addClient(@RequestBody Client c) {
+		/*
 		boolean ok = this.clientService.insert(c);
 		if(!ok) {
 			return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
 		}
+		return new ResponseEntity<Client>(c, HttpStatus.OK);
+		*/
+		System.out.println(c);
 		return new ResponseEntity<Client>(c, HttpStatus.OK);
 	}
 	
