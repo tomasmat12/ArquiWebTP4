@@ -1,11 +1,11 @@
-package repositories;
+package ArquiWeb.Spring.demo.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import entities.Client;
+import ArquiWeb.Spring.demo.entities.Client;
 
 public interface ClientRepository extends JpaRepository<Client, Object> {
 	@Modifying

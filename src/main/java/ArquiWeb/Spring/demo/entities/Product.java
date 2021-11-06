@@ -1,4 +1,4 @@
-package entities;
+package ArquiWeb.Spring.demo.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -50,8 +50,5 @@ public class Product {
 	public String toString() {
 		return "Product [id=" + id + ", name=" + name + ", stock=" + stock + ", price=" + price + "]";
 	}
-	
-	
-	
 	
 }

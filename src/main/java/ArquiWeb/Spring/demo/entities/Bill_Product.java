@@ -1,5 +1,4 @@
-package entities;
-
+package ArquiWeb.Spring.demo.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -65,8 +64,4 @@ public class Bill_Product {
 		return "Bill_Product [id=" + id + ", product=" + product + ", bill=" + bill + ", price=" + price + ", quantity="
 				+ quantity + "]";
 	}
-	
-	
-	
-	
 }

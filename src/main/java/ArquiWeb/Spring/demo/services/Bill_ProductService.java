@@ -1,4 +1,4 @@
-package servicios;
+package ArquiWeb.Spring.demo.services;
 
 import java.util.List;
 
@@ -6,10 +6,10 @@ import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import entities.Bill;
-import entities.Bill_Product;
-import entities.Product;
-import repositories.Bill_productRepository;
+import ArquiWeb.Spring.demo.repositories.Bill_productRepository;
+import ArquiWeb.Spring.demo.entities.Bill;
+import ArquiWeb.Spring.demo.entities.Bill_Product;
+import ArquiWeb.Spring.demo.entities.Product;
 
 public class Bill_ProductService {
 	@Autowired
@@ -29,9 +29,10 @@ public class Bill_ProductService {
 		this.billproduct.deleteById(dni);
 		return true;
 	}
-	@Transactional
+	//@Transactional
+	/*
 	public boolean update(Product product, Bill bill, long price, int quantity, int id) {
 		this.billproduct.updateBill_Product(product, bill, price,quantity, id);
 		return true;
-	}
+	}*/
 }

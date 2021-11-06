@@ -1,4 +1,4 @@
-package servicios;
+package ArquiWeb.Spring.demo.services;
 
 import java.util.List;
 
@@ -7,8 +7,8 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import entities.Client;
-import repositories.ClientRepository;
+import ArquiWeb.Spring.demo.repositories.ClientRepository;
+import ArquiWeb.Spring.demo.entities.Client;
 
 
 @Service

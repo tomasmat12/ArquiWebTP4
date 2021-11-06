@@ -21,7 +21,7 @@ function addClient() {
 		"address": address
 	}
 
-	fetch('https://localhost:8080/client', {
+	fetch('http://localhost:8080/client', {
 		method: 'POST',
 		headers: { 'Content-Type': 'application/json' },
 		body: JSON.stringify(data)
