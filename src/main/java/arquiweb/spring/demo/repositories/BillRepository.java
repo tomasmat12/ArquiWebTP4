@@ -1,8 +1,8 @@
-package ArquiWeb.Spring.demo.repositories;
+package arquiweb.spring.demo.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import ArquiWeb.Spring.demo.entities.Bill;
+import arquiweb.spring.demo.entities.Bill;
 
 interface BillRepository extends JpaRepository<Bill, Object> {
 

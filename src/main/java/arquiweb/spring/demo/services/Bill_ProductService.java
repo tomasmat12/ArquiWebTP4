@@ -1,4 +1,4 @@
-package ArquiWeb.Spring.demo.services;
+package arquiweb.spring.demo.services;
 
 import java.util.List;
 
@@ -6,10 +6,10 @@ import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import ArquiWeb.Spring.demo.repositories.Bill_productRepository;
-import ArquiWeb.Spring.demo.entities.Bill;
-import ArquiWeb.Spring.demo.entities.Bill_Product;
-import ArquiWeb.Spring.demo.entities.Product;
+import arquiweb.spring.demo.entities.Bill;
+import arquiweb.spring.demo.entities.Bill_Product;
+import arquiweb.spring.demo.entities.Product;
+import arquiweb.spring.demo.repositories.Bill_productRepository;
 
 public class Bill_ProductService {
 	@Autowired

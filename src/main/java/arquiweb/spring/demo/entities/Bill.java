@@ -1,4 +1,4 @@
-package ArquiWeb.Spring.demo.entities;
+package arquiweb.spring.demo.entities;
 
 import java.sql.Date;
 

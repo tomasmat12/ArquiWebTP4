@@ -1,13 +1,13 @@
-package ArquiWeb.Spring.demo.repositories;
+package arquiweb.spring.demo.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import ArquiWeb.Spring.demo.entities.Bill;
-import ArquiWeb.Spring.demo.entities.Bill_Product;
-import ArquiWeb.Spring.demo.entities.Product;
+import arquiweb.spring.demo.entities.Bill;
+import arquiweb.spring.demo.entities.Bill_Product;
+import arquiweb.spring.demo.entities.Product;
 
 public interface Bill_productRepository extends JpaRepository<Bill_Product, Object> {
 /*

@@ -1,4 +1,4 @@
-package ArquiWeb.Spring.demo.controller;
+package arquiweb.spring.demo.controller;
 
 import java.util.List;
 
@@ -15,11 +15,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import ArquiWeb.Spring.demo.services.ProductService;
+import arquiweb.spring.demo.entities.Product;
+import arquiweb.spring.demo.services.ProductService;
 
 import org.slf4j.Logger;
-
-import ArquiWeb.Spring.demo.entities.Product;
 
 @RestController
 @RequestMapping("/product")

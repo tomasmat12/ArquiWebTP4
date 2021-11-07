@@ -1,4 +1,4 @@
-package ArquiWeb.Spring.demo;
+package arquiweb.spring.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

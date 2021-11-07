@@ -1,4 +1,4 @@
-package ArquiWeb.Spring.demo.controller;
+package arquiweb.spring.demo.controller;
 
 import java.util.List;
 
@@ -7,8 +7,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import ArquiWeb.Spring.demo.entities.Bill_Product;
-import ArquiWeb.Spring.demo.services.Bill_ProductService;
+import arquiweb.spring.demo.entities.Bill_Product;
+import arquiweb.spring.demo.services.Bill_ProductService;
 
 
 class Bill_ProductController {

@@ -1,4 +1,4 @@
-package ArquiWeb.Spring.demo.controller;
+package arquiweb.spring.demo.controller;
 
 import java.util.List;
 
@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import ArquiWeb.Spring.demo.services.ClientService;
-import ArquiWeb.Spring.demo.entities.Client;
+import arquiweb.spring.demo.entities.Client;
+import arquiweb.spring.demo.services.ClientService;
 
 @RestController
 @RequestMapping("/client")
