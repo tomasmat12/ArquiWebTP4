@@ -11,8 +11,7 @@ import arquiweb.spring.demo.repositories.ProductRepository;
 
 
 @Service
-public
-class ProductService {
+public class ProductService {
 	@Autowired
 	private ProductRepository products;
 	

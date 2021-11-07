@@ -23,6 +23,10 @@ public class Bill {
 	private Long total;
 	
 	
+	public Bill() {
+		super();
+	}
+
 	public Bill(Client client, Date date, Long total) {
 		super();
 		this.client = client;

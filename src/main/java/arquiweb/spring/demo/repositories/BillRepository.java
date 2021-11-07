@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import arquiweb.spring.demo.entities.Bill;
 
-interface BillRepository extends JpaRepository<Bill, Object> {
+public interface BillRepository extends JpaRepository<Bill, Object> {
 
 }

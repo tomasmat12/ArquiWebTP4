@@ -7,6 +7,7 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import arquiweb.spring.demo.dtos.ClientReportDTO;
 import arquiweb.spring.demo.entities.Client;
 import arquiweb.spring.demo.repositories.ClientRepository;
 
@@ -19,6 +20,10 @@ class ClientService {
 	
 	public List<Client> getClients() {
 		return this.clients.findAll();
+	}
+	
+	public Client getClient(int dni) {
+		return this.clients.getById(dni);
 	}
 	
 	@Transactional
@@ -35,5 +40,9 @@ class ClientService {
 	public boolean update(int new_dni, String name, String lastname,String address, int dni) {
 		this.clients.updateClient(new_dni, name, lastname,address, dni);
 		return true;
+	}
+	
+	public List<ClientReportDTO> getClientsReport() {
+		return this.clients.clientReport();
 	}
 }

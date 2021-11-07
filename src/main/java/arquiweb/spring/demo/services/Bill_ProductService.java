@@ -5,12 +5,14 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import arquiweb.spring.demo.entities.Bill;
 import arquiweb.spring.demo.entities.Bill_Product;
 import arquiweb.spring.demo.entities.Product;
 import arquiweb.spring.demo.repositories.Bill_productRepository;
 
+@Service
 public class Bill_ProductService {
 	@Autowired
 	private Bill_productRepository billproduct;

@@ -15,7 +15,9 @@ public class Product {
 	private int stock;
 	private Long price;
 	
-	
+	public Product() {
+		super();
+	}
 	
 	public Product(String name, int stock, Long price) {
 		super();
@@ -23,7 +25,7 @@ public class Product {
 		this.stock = stock;
 		this.price = price;
 	}
-	
+
 	public String getName() {
 		return name;
 	}
