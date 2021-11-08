@@ -16,6 +16,12 @@ import javax.persistence.SqlResultSetMapping;
 
 import arquiweb.spring.demo.dtos.BillReportDTO;
 
+/**
+ * Entidad de Factura, tiene el formato de los valores en la bd
+ * 
+ * la native query que hicimos como jpa no toma bien el formato 
+ * sql.Date, casteamos las fechas a string 
+ */
 @Entity
 @NamedNativeQuery(
 	    name = "bill_report_for_day_dto",
@@ -27,7 +33,7 @@ import arquiweb.spring.demo.dtos.BillReportDTO;
     classes = @ConstructorResult(
         targetClass = BillReportDTO.class,
         columns = {
-            @ColumnResult(name = "date", type = Date.class),
+            @ColumnResult(name = "date", type = String.class),
             @ColumnResult(name = "total", type = BigInteger.class)
         }
     )

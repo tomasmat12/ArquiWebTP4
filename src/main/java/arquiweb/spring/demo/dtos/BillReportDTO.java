@@ -1,24 +1,23 @@
 package arquiweb.spring.demo.dtos;
 
 import java.math.BigInteger;
-import java.sql.Date;
 
 public class BillReportDTO {
 
-	private Date date;
+	private String date;
 	private BigInteger total;
 	
 	
-	public BillReportDTO(Date date, BigInteger total) {
+	public BillReportDTO(String date, BigInteger total) {
 		this.date = date;
 		this.total = total;
 	}
 	
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
 	
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 	
