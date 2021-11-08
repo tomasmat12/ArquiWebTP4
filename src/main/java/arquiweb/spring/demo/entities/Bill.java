@@ -1,15 +1,37 @@
 package arquiweb.spring.demo.entities;
 
+import java.math.BigInteger;
 import java.sql.Date;
 
+import javax.persistence.ColumnResult;
+import javax.persistence.ConstructorResult;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedNativeQuery;
+import javax.persistence.SqlResultSetMapping;
+
+import arquiweb.spring.demo.dtos.BillReportDTO;
 
 @Entity
+@NamedNativeQuery(
+	    name = "bill_report_for_day_dto",
+	    query = "SELECT b.date AS date, SUM(b.total) AS total FROM Bill b GROUP BY b.date",
+	    resultSetMapping = "billReport_dto"
+	)
+@SqlResultSetMapping(
+    name = "billReport_dto",
+    classes = @ConstructorResult(
+        targetClass = BillReportDTO.class,
+        columns = {
+            @ColumnResult(name = "date", type = Date.class),
+            @ColumnResult(name = "total", type = BigInteger.class)
+        }
+    )
+)
 public class Bill {
 
 	@Id

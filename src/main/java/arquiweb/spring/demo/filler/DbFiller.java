@@ -25,7 +25,7 @@ public class DbFiller {
 			Bill_productRepository bill_products, BillRepository bills) {
 		return args->{
 			IntStream.range(0, 10).forEach(i->{
-				Client c = new Client(i, "Client", "" +i, "street 00" +i);
+				Client c = new Client(i, "Client"+i, "Lastname" +i, "street 00" +i);
 				c = clients.save(c);
 				
 				Product p = new Product("product" +i, 10, (long) 10+i);

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import arquiweb.spring.demo.dtos.BillReportDTO;
 import arquiweb.spring.demo.entities.Bill;
 import arquiweb.spring.demo.services.BillService;
 
@@ -23,5 +24,10 @@ public class BillController {
 	@GetMapping("")
 	public List<Bill> getAll() {
 		return this.billService.getBills();
+	}
+	
+	@GetMapping("/report")
+	public List<BillReportDTO> report(){
+		return this.billService.report();
 	}
 }

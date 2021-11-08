@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import arquiweb.spring.demo.dtos.BillReportDTO;
 import arquiweb.spring.demo.entities.Bill;
 import arquiweb.spring.demo.repositories.BillRepository;
 
@@ -19,4 +20,7 @@ public class BillService {
 		return this.billrepository.findAll();
 	}
 	
+	public List<BillReportDTO> report(){
+		return this.billrepository.salesReport();
+	}
 }
