@@ -1,11 +1,37 @@
 package arquiweb.spring.demo.entities;
 
+import javax.persistence.ColumnResult;
+import javax.persistence.ConstructorResult;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedNativeQuery;
+import javax.persistence.SqlResultSetMapping;
+
+import arquiweb.spring.demo.dtos.ClientReportDTO;
+import arquiweb.spring.demo.dtos.ProductReportDTO;
 
 @Entity
+@NamedNativeQuery(
+	    name = "product_report_dto",
+	    query = "SELECT p.id, p.name, p.price, SUM(bp.quantity) as total "
+	    		+ " FROM Product p JOIN Bill_Product bp ON p.id = bp.id_product "
+	    		+ " GROUP BY p.id ORDER BY total desc LIMIT 1",
+	    resultSetMapping = "productReport_dto"
+	)
+@SqlResultSetMapping(
+    name = "productReport_dto",
+    classes = @ConstructorResult(
+        targetClass = ProductReportDTO.class,
+        columns = {
+            @ColumnResult(name = "id", type = Integer.class),
+            @ColumnResult(name = "name", type = String.class),
+            @ColumnResult(name = "price", type = Long.class),
+            @ColumnResult(name = "total", type = Long.class)
+        }
+    )
+)
 public class Product {
 
 	@Id

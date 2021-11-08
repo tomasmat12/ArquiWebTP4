@@ -6,6 +6,7 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import arquiweb.spring.demo.dtos.ProductReportDTO;
 import arquiweb.spring.demo.entities.Product;
 import arquiweb.spring.demo.repositories.ProductRepository;
 
@@ -33,6 +34,10 @@ public class ProductService {
 	public boolean delete(int id) {
 		this.products.deleteById(id);
 		return true;
+	}
+	
+	public List<ProductReportDTO> getReport(){
+		return this.products.productSalesReport();
 	}
 
 }

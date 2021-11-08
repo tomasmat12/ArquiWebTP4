@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import arquiweb.spring.demo.dtos.ProductReportDTO;
 import arquiweb.spring.demo.entities.Product;
 import arquiweb.spring.demo.services.ProductService;
 
@@ -57,5 +58,10 @@ private static Logger LOG = LoggerFactory.getLogger(ProductController.class);
 		}
 		if(!ok) return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
 		else return new ResponseEntity<>(id, HttpStatus.OK);
+	}
+	
+	@GetMapping(value = "/getReport")
+	public List<ProductReportDTO> getProductReport(){
+		return this.productService.getReport();
 	}
 }
