@@ -103,8 +103,6 @@
 	</div>
 	
 	
-	
-	
 	<div class="container mt-3 mb-3">
 		<h3> Nueva Compra</h3>
 		<button type="button" class="btn btn-secondary" data-toggle="modal"
@@ -161,9 +159,28 @@
 		
 	</div>
 	
-	
-	
-	
+	<div class="container mt-3 mb-3">
+		<h3>Editar o Eliminar Clientes</p>
+		<button type="button" class="btn btn-secondary"
+			onclick="getAllClient()">GET</button>
+		<button type="button" class="btn btn-secondary"
+			onclick="ocultarTablaC()">Ocultar Tabla</button>
+	</div>
+	<div class="container mt-3 mb-3">
+		<table class="table" id="myTable">
+			<thead>
+				<tr>
+					<th scope="col">N. Documento</th>
+					<th scope="col">Nombre</th>
+					<th scope="col">Apellido</th>
+					<th scope="col">Direccion</th>
+				</tr>
+			</thead>
+			<tbody class="bodyTable">
+
+			</tbody>
+		</table>
+	</div>
 	
 	
 	<script type="text/javascript"

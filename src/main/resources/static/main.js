@@ -1,14 +1,12 @@
 document.querySelector("#add-Client").addEventListener("click", addClient);
 document.querySelector("#add-Product").addEventListener("click", addProduct);
 document.querySelector("#add-Bill").addEventListener("click", addBill);
-document.querySelector("#bill-product-list").addEventListener("click", addProductosCarrito);
+//document.querySelector("#bill-product-list").addEventListener("click", addProductosCarrito);
 
 window.addEventListener('DOMContentLoaded', (event) => {
     console.log('DOM fully loaded and parsed');
 	getProducts();
 });
-
-
 
 function addProduct() {
 	let name = document.querySelector("#nameP").value;
@@ -86,7 +84,7 @@ function addBill() {
 		"dni": numDoc,
 		"date": date,
 		"total": total,
-		"carrito": *****
+	    //"carrito": *****
 	}
 
 	fetch('http://localhost:8080/bill', {
@@ -118,4 +116,49 @@ function getProducts() {
 		}
 
 		);
+}
+
+function getAllClient() {
+    let bodyTable = document.getElementsByClassName('bodyTable')[0];
+	let bodyTable1 = document.getElementById('myTable');
+	bodyTable1.style.display = "table";
+	fetch('http://localhost:8080/client')
+		.then(response => {
+			return response.json()
+		}).then(function(response) {
+			let elements = response;
+			showClients(bodyTable, elements);
+		})
+		.catch(function(error) {
+			console.log(error);
+		}
+
+		);
+}
+
+function showClients(bodyTable, elements) {
+    bodyTable.innerHTML = "";
+	elements.forEach(element => {
+		let newRow = bodyTable.insertRow(-1);
+		let cell1 = newRow.insertCell(0);
+		let newText1 = document.createTextNode(element['dni']);
+		cell1.appendChild(newText1);
+		let cell2 = newRow.insertCell(1);
+		let newText2 = document.createTextNode(element['name']);
+		cell2.appendChild(newText2);
+		let cell3 = newRow.insertCell(2);
+		let newText3 = document.createTextNode(element['lastname']);
+		cell3.appendChild(newText3);
+		let cell4 = newRow.insertCell(3);
+		let newText4 = document.createTextNode(element['address']);
+		cell4.appendChild(newText4);
+		let btn = document.createElement("button");
+		btn.innerHTML = "Click Me";
+		let cell5.appendChild(btn);
+	});
+}
+
+function ocultarTablaC(){
+	let bodyTable = document.getElementById('myTable');
+	bodyTable.style.display = "none";
 }
