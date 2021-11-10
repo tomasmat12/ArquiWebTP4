@@ -68,7 +68,7 @@ private static Logger LOG = LoggerFactory.getLogger(ClientController.class);
 	public ResponseEntity<?> updateClient(@PathVariable( "id" ) int id, @RequestBody Client client) {
 		boolean ok = false;
 		if(client != null) {
-			ok = this.clientService.update(client.getDni(),client.getName(), client.getLastname(), client.getAddress(), id);
+			ok = this.clientService.update(client.getName(), client.getLastname(), client.getAddress(), id);
 		}
 		if(!ok) return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
 		else return new ResponseEntity<>(id, HttpStatus.OK);

@@ -37,8 +37,8 @@ class ClientService {
 		return true;
 	}
 	@Transactional
-	public boolean update(int new_dni, String name, String lastname,String address, int dni) {
-		this.clients.updateClient(new_dni, name, lastname,address, dni);
+	public boolean update(String name, String lastname,String address, int dni) {
+		this.clients.updateClient(name, lastname,address, dni);
 		return true;
 	}
 	

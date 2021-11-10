@@ -2,6 +2,7 @@ document.querySelector("#add-Client").addEventListener("click", addClient);
 document.querySelector("#add-Product").addEventListener("click", addProduct);
 document.querySelector("#add-Bill").addEventListener("click", addBill);
 //document.querySelector("#bill-product-list").addEventListener("click", addProductosCarrito);
+document.querySelector("#edit-Client").addEventListener("click", editClient);
 
 window.addEventListener('DOMContentLoaded', (event) => {
     console.log('DOM fully loaded and parsed');
@@ -174,16 +175,45 @@ function showClients(bodyTable, elements) {
 		let cell6 = newRow.insertCell(4);
 		let btn2 = document.createElement("button");
 		btn2.innerHTML = "Editar";
-		//btn2.data-toggle = "modal";
-		//btn2.data-target = "#addClient"
+		btn2.dataset.toggle = "modal";
+		btn2.dataset.target = "#editClient";
 		btn2.onclick = function(){
-			    console.log("yo edito")
+				document.getElementById("dniEdit").value = element['dni']
 			};
 		cell6.appendChild(btn2);
-			
 	});
 }
 
+function editClient() {
+	let numDoc = document.querySelector("#dniEdit").value;
+	let name = document.querySelector("#nameCEdit").value;
+	let lastname = document.querySelector("#lastnameEdit").value;
+	let address = document.querySelector("#addressEdit").value;
+
+	if((numDoc === "" || name === "")||(lastname === "" || address === "")){
+			return alert("Todos los campos son requeridos");	
+	}
+	
+	let data = {
+		"dni": numDoc,
+		"name": name,
+		"lastname": lastname,
+		"address": address
+	}
+
+	fetch('http://localhost:8080/client/'+numDoc, {
+		method: 'PUT',
+		headers: { 'Content-Type': 'application/json' },
+		body: JSON.stringify(data)
+	})
+		.then(response => {
+			getCities(); //revisar 
+		})
+		.catch(function(error) {
+			console.log(error);
+		})
+	}
+	
 function ocultarTablaC(){
 	let bodyTable = document.getElementById('myTable');
 	bodyTable.style.display = "none";
