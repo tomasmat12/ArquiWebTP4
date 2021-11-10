@@ -3,6 +3,8 @@ document.querySelector("#add-Product").addEventListener("click", addProduct);
 document.querySelector("#add-Bill").addEventListener("click", addBill);
 //document.querySelector("#bill-product-list").addEventListener("click", addProductosCarrito);
 document.querySelector("#edit-Client").addEventListener("click", editClient);
+document.querySelector("#edit-Product").addEventListener("click", editProduct);
+document.querySelector("#edit-Bill").addEventListener("click", editBill);
 
 window.addEventListener('DOMContentLoaded', (event) => {
     console.log('DOM fully loaded and parsed');
@@ -218,3 +220,207 @@ function ocultarTablaC(){
 	let bodyTable = document.getElementById('myTable');
 	bodyTable.style.display = "none";
 }
+
+function getAllProducts() {
+    let bodyTable = document.getElementsByClassName('bodyTableP')[0];
+	let bodyTable1 = document.getElementById('myTableP');
+	bodyTable1.style.display = "table";
+	fetch('http://localhost:8080/product')
+		.then(response => {
+			return response.json()
+		}).then(function(response) {
+			let elements = response;
+			showProducts(bodyTable, elements);
+		})
+		.catch(function(error) {
+			console.log(error);
+		}
+
+		);
+}
+
+function showProducts(bodyTable, elements) {
+    bodyTable.innerHTML = "";
+	elements.forEach(element => {
+		let newRow = bodyTable.insertRow(-1);
+		let cell1 = newRow.insertCell(0);
+		let newText1 = document.createTextNode(element['id']);
+		cell1.appendChild(newText1);
+		let cell2 = newRow.insertCell(1);
+		let newText2 = document.createTextNode(element['name']);
+		cell2.appendChild(newText2);
+		let cell3 = newRow.insertCell(2);
+		let newText3 = document.createTextNode(element['price']);
+		cell3.appendChild(newText3);
+		let cell4 = newRow.insertCell(3);
+		let newText4 = document.createTextNode(element['stock']);
+		cell4.appendChild(newText4);
+		let cell5 = newRow.insertCell(4);
+		let btn = document.createElement("button");
+		btn.innerHTML = "Eliminar";
+		btn.onclick = function(){
+			    fetch('http://localhost:8080/product/' + element['id'], {
+			        method: 'DELETE',
+			    })
+			       .then(response => {
+					return response.json()
+				}).then(function(response) {
+					if(response.error){
+						return alert("El producto tiene compras asociadas, y no se puede eliminar, o se perderia la informacion");
+					}
+				})
+				.catch(function(error) {
+					console.log(error);
+				})
+			};
+		cell5.appendChild(btn);
+		let cell6 = newRow.insertCell(4);
+		let btn2 = document.createElement("button");
+		btn2.innerHTML = "Editar";
+		btn2.dataset.toggle = "modal";
+		btn2.dataset.target = "#editProduct";
+		btn2.onclick = function(){
+				document.getElementById("idEdit").value = element['id']
+			};
+		cell6.appendChild(btn2);
+	});
+}
+
+function editProduct() {
+	let id = document.querySelector("#idEdit").value;
+	let name = document.querySelector("#namePEdit").value;
+	let price = document.querySelector("#priceEdit").value;
+	let stock = document.querySelector("#stockEdit").value;
+
+	if((id === "" || name === "")||(price === "" || stock === "")){
+			return alert("Todos los campos son requeridos");	
+	}
+	
+	let data = {
+		"id": id,
+		"name": name,
+		"price": price,
+		"stock": stock
+	}
+
+	fetch('http://localhost:8080/product/'+id, {
+		method: 'PUT',
+		headers: { 'Content-Type': 'application/json' },
+		body: JSON.stringify(data)
+	})
+		.then(response => {
+			//getCities(); //revisar 
+		})
+		.catch(function(error) {
+			console.log(error);
+		})
+	}
+	
+function ocultarTablaP(){
+	let bodyTable = document.getElementById('myTableP');
+	bodyTable.style.display = "none";
+}
+
+function getAllBills() {
+    let bodyTable = document.getElementsByClassName('bodyTableB')[0];
+	let bodyTable1 = document.getElementById('myTableB');
+	bodyTable1.style.display = "table";
+	fetch('http://localhost:8080/bill')
+		.then(response => {
+			return response.json()
+		}).then(function(response) {
+			let elements = response;
+			showBills(bodyTable, elements);
+		})
+		.catch(function(error) {
+			console.log(error);
+		}
+
+		);
+}
+
+function showBills(bodyTable, elements) {
+    bodyTable.innerHTML = "";
+	elements.forEach(element => {
+		let newRow = bodyTable.insertRow(-1);
+		let cell1 = newRow.insertCell(0);
+		let newText1 = document.createTextNode(element['id']);
+		cell1.appendChild(newText1);
+		let cell2 = newRow.insertCell(1);
+		let newText2 = document.createTextNode(element['client.dni']);
+		cell2.appendChild(newText2);
+		let cell3 = newRow.insertCell(2);
+		let newText3 = document.createTextNode(element['date']);
+		cell3.appendChild(newText3);
+		let cell4 = newRow.insertCell(3);
+		let newText4 = document.createTextNode(element['total']);
+		cell4.appendChild(newText4);
+        let cell5 = newRow.insertCell(4);
+		let newText5 = document.createTextNode(element['total']);
+		cell5.appendChild(newText5);
+		let cell6 = newRow.insertCell(5);
+		let btn = document.createElement("button");
+		btn.innerHTML = "Eliminar";
+		btn.onclick = function(){
+			    fetch('http://localhost:8080/bill/' + element['id'], {
+			        method: 'DELETE',
+			    })
+			       .then(response => {
+					return response.json()
+				}).then(function(response) {
+					if(response.error){
+						return alert("No se pudo eliminar la compra");
+					}
+				})
+				.catch(function(error) {
+					console.log(error);
+				})
+			};
+		cell6.appendChild(btn);
+		let cell7 = newRow.insertCell(6);
+		let btn2 = document.createElement("button");
+		btn2.innerHTML = "Editar";
+		btn2.dataset.toggle = "modal";
+		btn2.dataset.target = "#editBill";
+		btn2.onclick = function(){
+				document.getElementById("idBEdit").value = element['id']
+			};
+		cell7.appendChild(btn2);
+	});
+}
+
+function editBill() {
+	let id = document.querySelector("#idEdit").value;
+	let dni = document.querySelector("#dniBEdit").value;
+	let date = document.querySelector("#dateEdit").value;
+	let total = document.querySelector("#totalEdit").value;
+
+	if((id === "" || dni === "")||(date === "" || total === "")){
+			return alert("Todos los campos son requeridos");	
+	}
+	
+	let data = {
+		"id": id,
+		"dni": dni,
+		"date": date,
+		"total": total
+	}
+
+	fetch('http://localhost:8080/bill/'+id, {
+		method: 'PUT',
+		headers: { 'Content-Type': 'application/json' },
+		body: JSON.stringify(data)
+	})
+		.then(response => {
+			//getCities(); //revisar 
+		})
+		.catch(function(error) {
+			console.log(error);
+		})
+	}
+	
+function ocultarTablaB(){
+	let bodyTable = document.getElementById('myTableB');
+	bodyTable.style.display = "none";
+}
+

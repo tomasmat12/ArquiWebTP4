@@ -206,12 +206,151 @@
 								class="form-control" id="addressEdit" required>
 						</div>
 						<button type="button" id="edit-Client" class="btn btn-primary"
-							data-dismiss="modal">Agregar</button>
+							data-dismiss="modal">Editar</button>
 					</form>
 				</div>
 			</div>
 		</div>
 	</div>
+	</div>
+    
+    <div class="container mt-3 mb-3">
+		<h3>
+			Editar o Eliminar Productos
+			</p>
+			<button type="button" class="btn btn-secondary"
+				onclick="getAllProducts()">GET</button>
+			<button type="button" class="btn btn-secondary"
+				onclick="ocultarTablaP()">Ocultar Tabla</button>
+	</div>
+	<div class="container mt-3 mb-3">
+		<table class="table" id="myTableP">
+			<thead>
+				<tr>
+					<th scope="col">Id</th>
+					<th scope="col">Nombre</th>
+					<th scope="col">Precio</th>
+					<th scope="col">Stock</th>
+					<th scope="col">Acciones</th>
+				</tr>
+			</thead>
+			<tbody class="bodyTableP">
+
+			</tbody>
+		</table>
+		<div class="modal fade" id="editProduct" tabindex="-1" role="dialog"
+		aria-labelledby="editProduct " aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Editar Producto</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+                    <form>
+						<div class="form-group">
+							<label for="id">id</label> 
+								<input type="text" class="form-control" id="idEdit"
+								aria-describedby="unique-value" disabled> 
+								<small id="unique-value" class="form-text text-muted"></small>
+						</div>
+						<div class="form-group">
+							<label for="name"> Nombre </label> <input type="text"
+								class="form-control" id="namePEdit" required>
+						</div>
+						<div class="form-group">
+							<label for="price"> Precio </label> <input type="text"
+								class="form-control" id="priceEdit" required>
+						</div>
+
+						<div class="form-group">
+							<label for="stock"> Stock </label> <input type="text"
+								class="form-control" id="stockEdit" required>
+						</div>
+						<button type="button" id="edit-Product" class="btn btn-primary"
+							data-dismiss="modal">Editar</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+
+
+    <div class="container mt-3 mb-3">
+		<h3>
+			Editar o Eliminar Compras
+			</p>
+			<button type="button" class="btn btn-secondary"
+				onclick="getAllBills()">GET</button>
+			<button type="button" class="btn btn-secondary"
+				onclick="ocultarTablaB()">Ocultar Tabla</button>
+	</div>
+	<div class="container mt-3 mb-3">
+		<table class="table" id="myTableB">
+			<thead>
+				<tr>
+                    <th scope="col">ID</th>
+					<th scope="col">DNI Cliente</th>
+					<th scope="col">Fecha</th>
+					<th scope="col">Monto</th>
+					<th scope="col">Producto</th>
+					<th scope="col">Acciones</th>
+				</tr>
+			</thead>
+			<tbody class="bodyTableB">
+
+			</tbody>
+		</table>
+		<div class="modal fade" id="editBill" tabindex="-1" role="dialog"
+		aria-labelledby="editBill " aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Editar Compras</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+                    <form>
+						<div class="form-group">
+							<label for="id">ID</label> 
+								<input type="text" class="form-control" id="idBEdit"
+								aria-describedby="unique-value" disabled> 
+								<small id="unique-value" class="form-text text-muted"></small>
+						</div>
+                        <div class="form-group">
+							<label for="num-doc">DNI Cliente</label> 
+								<input type="text" class="form-control" id="dniBEdit"
+								aria-describedby="unique-value" disabled> 
+								<small id="unique-value" class="form-text text-muted"></small>
+						</div>
+						<div class="form-group">
+							<label for="lastname"> Fecha </label> <input type="date"
+								class="form-control" id="dateEdit" required>
+						</div>
+
+						<div class="form-group">
+							<label for="city"> Monto </label> <input type="number"
+								class="form-control" id="totalEdit" disabled>
+						</div>
+						<div class="form-group">
+							<label for="bill-product-list">Producto</label> <select
+								class="form-control" id="bill-product-list">
+							</select>
+							<div id="carrito"></div>
+						</div>
+						<button type="button" id="edit-Bill" class="btn btn-primary"
+							data-dismiss="modal">Editar</button>
+					</form>
+				</div>
+			</div>
+		</div>
 	</div>
 	
 	
