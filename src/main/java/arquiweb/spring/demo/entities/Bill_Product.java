@@ -22,7 +22,9 @@ public class Bill_Product {
 	private Long price;
 	private int quantity;
 	
-		
+	public Bill_Product() {
+		super();
+	}
 	
 	public Bill_Product(Product product, Bill bill, Long price, int quantity) {
 		super();

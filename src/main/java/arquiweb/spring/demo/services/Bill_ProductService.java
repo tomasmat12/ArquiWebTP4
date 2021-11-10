@@ -7,6 +7,7 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import arquiweb.spring.demo.dtos.BillReportDTO;
 import arquiweb.spring.demo.entities.Bill;
 import arquiweb.spring.demo.entities.Bill_Product;
 import arquiweb.spring.demo.entities.Product;
@@ -37,4 +38,8 @@ public class Bill_ProductService {
 		this.billproduct.updateBill_Product(product, bill, price,quantity, id);
 		return true;
 	}*/
+	@Transactional
+	public List<Bill_Product> getByIdBill(int id){
+		return this.billproduct.getByIdBill(id);
+	}
 }
