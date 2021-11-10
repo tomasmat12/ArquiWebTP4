@@ -359,66 +359,9 @@ function showBills(bodyTable, elements) {
 		let newText5 = document.createTextNode(element['total']);
 		cell5.appendChild(newText5);
 		let cell6 = newRow.insertCell(5);
-		let btn = document.createElement("button");
-		btn.innerHTML = "Eliminar";
-		btn.onclick = function(){
-			    fetch('http://localhost:8080/bill/' + element['id'], {
-			        method: 'DELETE',
-			    })
-			       .then(response => {
-					return response.json()
-				}).then(function(response) {
-					if(response.error){
-						return alert("No se pudo eliminar la compra");
-					}
-				})
-				.catch(function(error) {
-					console.log(error);
-				})
-			};
-		cell6.appendChild(btn);
-		let cell7 = newRow.insertCell(6);
-		let btn2 = document.createElement("button");
-		btn2.innerHTML = "Editar";
-		btn2.dataset.toggle = "modal";
-		btn2.dataset.target = "#editBill";
-		btn2.onclick = function(){
-				document.getElementById("idBEdit").value = element['id']
-			};
-		cell7.appendChild(btn2);
 	});
 }
 
-function editBill() {
-	let id = document.querySelector("#idEdit").value;
-	let dni = document.querySelector("#dniBEdit").value;
-	let date = document.querySelector("#dateEdit").value;
-	let total = document.querySelector("#totalEdit").value;
-
-	if((id === "" || dni === "")||(date === "" || total === "")){
-			return alert("Todos los campos son requeridos");	
-	}
-	
-	let data = {
-		"id": id,
-		"dni": dni,
-		"date": date,
-		"total": total
-	}
-
-	fetch('http://localhost:8080/bill/'+id, {
-		method: 'PUT',
-		headers: { 'Content-Type': 'application/json' },
-		body: JSON.stringify(data)
-	})
-		.then(response => {
-			//getCities(); //revisar 
-		})
-		.catch(function(error) {
-			console.log(error);
-		})
-	}
-	
 function ocultarTablaB(){
 	let bodyTable = document.getElementById('myTableB');
 	bodyTable.style.display = "none";
