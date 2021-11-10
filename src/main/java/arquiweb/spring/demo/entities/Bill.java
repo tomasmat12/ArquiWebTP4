@@ -3,6 +3,7 @@ package arquiweb.spring.demo.entities;
 import java.math.BigInteger;
 import java.sql.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.ColumnResult;
 import javax.persistence.ConstructorResult;
 import javax.persistence.Entity;

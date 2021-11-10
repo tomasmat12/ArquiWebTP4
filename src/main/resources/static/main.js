@@ -152,9 +152,35 @@ function showClients(bodyTable, elements) {
 		let cell4 = newRow.insertCell(3);
 		let newText4 = document.createTextNode(element['address']);
 		cell4.appendChild(newText4);
+		let cell5 = newRow.insertCell(4);
 		let btn = document.createElement("button");
-		btn.innerHTML = "Click Me";
-		let cell5.appendChild(btn);
+		btn.innerHTML = "Eliminar";
+		btn.onclick = function(){
+			    fetch('http://localhost:8080/client/' + element['dni'], {
+			        method: 'DELETE',
+			    })
+			       .then(response => {
+					return response.json()
+				}).then(function(response) {
+					if(response.error){
+						return alert("El cliente tiene compras asociadas, y no se puede eliminar, o se perderia la informacion");
+					}
+				})
+				.catch(function(error) {
+					console.log(error);
+				})
+			};
+		cell5.appendChild(btn);
+		let cell6 = newRow.insertCell(4);
+		let btn2 = document.createElement("button");
+		btn2.innerHTML = "Editar";
+		//btn2.data-toggle = "modal";
+		//btn2.data-target = "#addClient"
+		btn2.onclick = function(){
+			    console.log("yo edito")
+			};
+		cell6.appendChild(btn2);
+			
 	});
 }
 
