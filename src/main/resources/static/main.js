@@ -330,6 +330,7 @@ function getAllBills() {
 			return response.json()
 		}).then(function(response) {
 			let elements = response;
+			console.log('ESTO',elements)
 			showBills(bodyTable, elements);
 		})
 		.catch(function(error) {
@@ -347,7 +348,7 @@ function showBills(bodyTable, elements) {
 		let newText1 = document.createTextNode(element['id']);
 		cell1.appendChild(newText1);
 		let cell2 = newRow.insertCell(1);
-		let newText2 = document.createTextNode(element['client.dni']);
+		let newText2 = document.createTextNode(element['client']['dni']);
 		cell2.appendChild(newText2);
 		let cell3 = newRow.insertCell(2);
 		let newText3 = document.createTextNode(element['date']);
