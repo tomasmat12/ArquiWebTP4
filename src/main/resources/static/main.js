@@ -4,11 +4,17 @@ document.querySelector("#add-Bill").addEventListener("click", addBill);
 //document.querySelector("#bill-product-list").addEventListener("click", addProductosCarrito);
 document.querySelector("#edit-Client").addEventListener("click", editClient);
 document.querySelector("#edit-Product").addEventListener("click", editProduct);
+<<<<<<< HEAD
+//document.querySelector("#edit-Bill").addEventListener("click", editBill);
+=======
+>>>>>>> branch 'main' of https://github.com/tomasmat12/ArquiWebTP4.git
 
 window.addEventListener('DOMContentLoaded', (event) => {
-    console.log('DOM fully loaded and parsed');
+    
 	getProducts();
 });
+
+let productosCarrito = [];
 
 function addProduct() {
 	let name = document.querySelector("#nameP").value;
@@ -37,8 +43,6 @@ function addProduct() {
 			console.log(error);
 		})
 	}
-
-
 
 function addClient() {
 	let numDoc = document.querySelector("#dni").value;
@@ -72,23 +76,24 @@ function addClient() {
 	}
 
 function addBill() {
-	let numDoc = document.querySelector("#dni").value;
-	let date = document.querySelector("#date").value;
-	let total = document.querySelector("#total").value;
-	let carrito = document.querySelector("#carrito");
+console.log(productosCarrito);
+	let numDoc = document.querySelector("#dniC").value;
+	let date = document.querySelector("#dateC").value;
+	let total = document.querySelector("#totalCarrito").value;
+	let carrito = productosCarrito;
 
-	if((numDoc === "" || date === "")){
+	if(numDoc === "" || date === ""){
 			return alert("Todos los campos son requeridos");
-			
 	}
 	
 	let data = {
 		"dni": numDoc,
 		"date": date,
 		"total": total,
-	    //"carrito": *****
+	    "product": carrito 
 	}
 
+return console.log(data);
 	fetch('http://localhost:8080/bill', {
 		method: 'POST',
 		headers: { 'Content-Type': 'application/json' },
@@ -104,14 +109,51 @@ function addBill() {
 
 
 function getProducts() {
+console.log("getP");
 	fetch('http://localhost:8080/product')
 		.then(response => {
 			return response.json()
 		}).then(function(products) {
-			let selectProduct = document.getElementById('bill-product-list');
-			for (const index in products) {
-				selectProduct.options[selectProduct.options.length] = new Option(products[index].name, products[index].id);
-			}
+			
+			let bodyTable = document.getElementsByClassName('table')[0];
+			let bodyTable2 = document.getElementById('bill-product-list');
+			bodyTable2.style.display = "table";
+			products.forEach(element => {
+				let newRow = bodyTable.insertRow(-1);
+				let cell1 = newRow.insertCell(0);
+				let newText1 = document.createTextNode(element['id']);
+				cell1.appendChild(newText1);
+				let cell2 = newRow.insertCell(1);
+				let newText2 = document.createTextNode(element['name']);
+				cell2.appendChild(newText2);
+				let cell3 = newRow.insertCell(2);
+				let newText3 = document.createTextNode(element['price']);
+				cell3.appendChild(newText3);
+				let cell4 = newRow.insertCell(3);
+				let newText4 = document.createTextNode(element['stock']);
+				cell4.appendChild(newText4);
+				let cell5 = newRow.insertCell(4);
+				let btn = document.createElement("button");
+				btn.innerHTML = "Carrito";
+				btn.onclick = function(){
+					event.preventDefault();
+					let monto = document.getElementById("totalCarrito");
+					let cantidad = document.getElementById("prodCarrtio" + element['id']).value;
+					let montoT = (cantidad * element['price'])
+					monto.value =  montoT + parseInt(monto.value, 10);
+					element.quantity = cantidad;
+					   productosCarrito.push(element);
+				};
+				cell5.appendChild(btn);
+				let cell6 = newRow.insertCell(4);
+				let input = document.createElement("input");
+				input.type = "number";
+				input.min = 0;
+				input.max = 3;
+				input.style.width = "50px";
+				input.setAttribute("id", "prodCarrtio" + element['id']);
+				cell6.appendChild(input);
+			})
 		})
 		.catch(function(error) {
 			console.log(error);
