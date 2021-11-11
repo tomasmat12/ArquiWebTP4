@@ -21,6 +21,12 @@ import arquiweb.spring.demo.dtos.ClientReportDTO;
 import arquiweb.spring.demo.entities.Client;
 import arquiweb.spring.demo.services.ClientService;
 
+/*
+*  Dado un pedido REST, el controlador de Client atiende el pedido y llama al servicio requerido.
+*  Objetivo principal mapear las URL para acceder al recurso necesario.
+*/
+
+
 @RestController
 @RequestMapping("/client")
 class ClientController {

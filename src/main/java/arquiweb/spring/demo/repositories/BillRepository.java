@@ -19,6 +19,10 @@ import arquiweb.spring.demo.entities.Bill;
   */
 public interface BillRepository extends JpaRepository<Bill, Object> {
 	
+	/*
+	 * Devuelve las ventas por dia
+	 */
+	
 	@Query(name = "bill_report_for_day_dto", nativeQuery = true)
 	public List<BillReportDTO> salesReport();
 

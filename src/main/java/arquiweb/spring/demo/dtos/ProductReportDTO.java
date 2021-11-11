@@ -1,5 +1,10 @@
 package arquiweb.spring.demo.dtos;
 
+/**
+* Guarda los datos que necesitamos de Product
+* para asignarlos a la query que los busca en la base de datos 
+*/
+
 public class ProductReportDTO {
 	
 	private int id;

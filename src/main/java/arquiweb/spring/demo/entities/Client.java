@@ -11,6 +11,14 @@ import arquiweb.spring.demo.dtos.ClientReportDTO;
 import javax.persistence.ConstructorResult;
 import javax.persistence.ColumnResult;
 
+/**
+*  Abstrae el formato de información de la clase sin depender de la base de datos que tenga  asociada
+*  En esta clase se mapea la Entidad Client
+* 
+*  La native query que hicimos como jpa no toma bien el formato 
+*  
+*/
+
 @Entity
 @NamedNativeQuery(
 	    name = "client_report_dto",

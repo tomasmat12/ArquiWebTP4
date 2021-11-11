@@ -13,6 +13,13 @@ import arquiweb.spring.demo.entities.Bill_Product;
 import arquiweb.spring.demo.entities.Product;
 import arquiweb.spring.demo.repositories.Bill_productRepository;
 
+/**
+*  Este es llamado desde el controlador de Bill_Product y sabe a que Repositorio tiene que llamar 
+*  dependiendo la instancia creada de la aplicación.
+*
+*/
+
+
 @Service
 public class Bill_ProductService {
 	@Autowired

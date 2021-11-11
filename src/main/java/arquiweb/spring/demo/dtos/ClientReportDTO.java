@@ -1,5 +1,9 @@
 package arquiweb.spring.demo.dtos;
 
+/**
+* Guarda los datos que necesitamos de Client
+* para asignarlos a la query que los busca en la base de datos 
+*/
 
 public class ClientReportDTO {
 

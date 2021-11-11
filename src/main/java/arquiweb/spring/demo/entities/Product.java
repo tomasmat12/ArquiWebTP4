@@ -12,6 +12,14 @@ import javax.persistence.SqlResultSetMapping;
 import arquiweb.spring.demo.dtos.ClientReportDTO;
 import arquiweb.spring.demo.dtos.ProductReportDTO;
 
+/**
+*  Abstrae el formato de información de la clase sin depender de la base de datos que tenga  asociada
+*  En esta clase se mapea la Entidad Product
+*
+*  La native query que hicimos como jpa no toma bien el formato 
+*   
+*/
+
 @Entity
 @NamedNativeQuery(
 	    name = "product_report_dto",
