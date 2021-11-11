@@ -16,7 +16,6 @@ public class BillService {
 	private BillRepository billrepository;
 	
 	public List<Bill> getBills() {
-		System.out.println("Service bill");
 		return this.billrepository.findAll();
 	}
 	
