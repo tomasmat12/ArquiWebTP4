@@ -368,3 +368,127 @@ function ocultarTablaB(){
 	bodyTable.style.display = "none";
 }
 
+function getReportClient() {
+    let bodyTable = document.getElementsByClassName('bodyTableClient')[0];
+	let bodyTable1 = document.getElementById('myTableClient');
+	bodyTable1.style.display = "table";
+	fetch('http://localhost:8080/client/report')
+		.then(response => {
+			return response.json()
+		}).then(function(response) {
+			let elements = response;
+			showClientReport(bodyTable, elements);
+		})
+		.catch(function(error) {
+			console.log(error);
+		}
+
+		);
+}
+
+function showClientReport(bodyTable, elements) {
+    bodyTable.innerHTML = "";
+	elements.forEach(element => {
+		let newRow = bodyTable.insertRow(-1);
+		let cell1 = newRow.insertCell(0);
+		let newText1 = document.createTextNode(element['dni']);
+		cell1.appendChild(newText1);
+		let cell2 = newRow.insertCell(1);
+		let newText2 = document.createTextNode(element['name']);
+		cell2.appendChild(newText2);
+		let cell3 = newRow.insertCell(2);
+		let newText3 = document.createTextNode(element['lastname']);
+		cell3.appendChild(newText3);
+		let cell4 = newRow.insertCell(3);
+		let newText4 = document.createTextNode(element['address']);
+		cell4.appendChild(newText4);
+        let cell5 = newRow.insertCell(4);
+		let newText5 = document.createTextNode(element['total']);
+		cell5.appendChild(newText5);
+		let cell6 = newRow.insertCell(5);
+	});
+}
+
+function ocultarTablaClient(){
+	let bodyTable = document.getElementById('myTableClient');
+	bodyTable.style.display = "none";
+}
+
+function getReportBill() {
+    let bodyTable = document.getElementsByClassName('bodyTableBill')[0];
+	let bodyTable1 = document.getElementById('myTableBill');
+	bodyTable1.style.display = "table";
+	fetch('http://localhost:8080/bill/report')
+		.then(response => {
+			return response.json()
+		}).then(function(response) {
+			let elements = response;
+			showBillReport(bodyTable, elements);
+		})
+		.catch(function(error) {
+			console.log(error);
+		}
+
+		);
+}
+
+function showBillReport(bodyTable, elements) {
+    bodyTable.innerHTML = "";
+	elements.forEach(element => {
+		let newRow = bodyTable.insertRow(-1);
+		let cell1 = newRow.insertCell(0);
+		let newText1 = document.createTextNode(element['date']);
+		cell1.appendChild(newText1);
+		let cell2 = newRow.insertCell(1);
+		let newText2 = document.createTextNode(element['total']);
+		cell2.appendChild(newText2);
+	});
+}
+
+function ocultarTablaBill(){
+	let bodyTable = document.getElementById('myTableBill');
+	bodyTable.style.display = "none";
+}
+
+function getReportProduct() {
+    let bodyTable = document.getElementsByClassName('bodyTableProduct')[0];
+	let bodyTable1 = document.getElementById('myTableProduct');
+	bodyTable1.style.display = "table";
+	fetch('http://localhost:8080/product/getReport')
+		.then(response => {
+			return response.json()
+		}).then(function(response) {
+			let elements = response;
+			showProductReport(bodyTable, elements);
+		})
+		.catch(function(error) {
+			console.log(error);
+		}
+
+		);
+}
+
+function showProductReport(bodyTable, elements) {
+    bodyTable.innerHTML = "";
+	elements.forEach(element => {
+		let newRow = bodyTable.insertRow(-1);
+		let cell1 = newRow.insertCell(0);
+		let newText1 = document.createTextNode(element['id']);
+		cell1.appendChild(newText1);
+		let cell2 = newRow.insertCell(1);
+		let newText2 = document.createTextNode(element['name']);
+		cell2.appendChild(newText2);
+		let cell3 = newRow.insertCell(2);
+		let newText3 = document.createTextNode(element['price']);
+		cell3.appendChild(newText3);
+		let cell4 = newRow.insertCell(3);
+		let newText4 = document.createTextNode(element['totalSold']);
+		cell4.appendChild(newText4);
+	});
+}
+
+function ocultarTablaProduct(){
+	let bodyTable = document.getElementById('myTableProduct');
+	bodyTable.style.display = "none";
+}
+

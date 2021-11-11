@@ -306,8 +306,79 @@
 		</table>
 	</div>
 	
+	<div class="container mt-3 mb-3">
+		<h3>
+			Ver reporte que indica los clientes y el monto total de sus compras
+			</p>
+			<button type="button" class="btn btn-secondary"
+				onclick="getReportClient()">GET</button>
+			<button type="button" class="btn btn-secondary"
+				onclick="ocultarTablaClient()">Ocultar Tabla</button>
+	</div>
+	<div class="container mt-3 mb-3">
+		<table class="table" id="myTableClient">
+			<thead>
+				<tr>
+					<th scope="col">Id</th>
+					<th scope="col">Nombre</th>
+					<th scope="col">Apellido</th>
+					<th scope="col">Direccion</th>
+					<th scope="col">Total</th>
+				</tr>
+			</thead>
+			<tbody class="bodyTableClient">
+
+			</tbody>
+		</table>
+	</div>
+		
+		<div class="container mt-3 mb-3">
+		<h3>
+			Ver reporte que indica las ventas por dia
+			</p>
+			<button type="button" class="btn btn-secondary"
+				onclick="getReportBill()">GET</button>
+			<button type="button" class="btn btn-secondary"
+				onclick="ocultarTablaBill()">Ocultar Tabla</button>
+	</div>
+	<div class="container mt-3 mb-3">
+		<table class="table" id="myTableBill">
+			<thead>
+				<tr>
+					<th scope="col">Fecha</th>
+					<th scope="col">Total</th>
+				</tr>
+			</thead>
+			<tbody class="bodyTableBill">
+
+			</tbody>
+		</table>
+	</div>
 	
-	
+	<div class="container mt-3 mb-3">
+		<h3>
+			Ver el producto mas vendido
+			</p>
+			<button type="button" class="btn btn-secondary"
+				onclick="getReportProduct()">GET</button>
+			<button type="button" class="btn btn-secondary"
+				onclick="ocultarTablaProduct()">Ocultar Tabla</button>
+	</div>
+	<div class="container mt-3 mb-3">
+		<table class="table" id="myTableProduct">
+			<thead>
+				<tr>
+					<th scope="col">id</th>
+					<th scope="col">Nombre</th>
+					<th scope="col">Precio</th>
+					<th scope="col">Total Ventas</th>
+				</tr>
+			</thead>
+			<tbody class="bodyTableProduct">
+
+			</tbody>
+		</table>
+	</div>
 
 
 	<script type="text/javascript"
