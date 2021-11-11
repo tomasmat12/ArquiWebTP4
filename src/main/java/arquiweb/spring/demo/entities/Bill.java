@@ -18,10 +18,17 @@ import javax.persistence.SqlResultSetMapping;
 import arquiweb.spring.demo.dtos.BillReportDTO;
 
 /**
- * Entidad de Factura, tiene el formato de los valores en la bd
  * 
- * la native query que hicimos como jpa no toma bien el formato 
- * sql.Date, casteamos las fechas a string 
+ *  Abstrae el formato de información de la clase sin depender de la base de datos que tenga  asociada
+ *  En esta clase se mapea la Bill
+ *  
+ *  La native query que hicimos como jpa no toma bien el formato 
+ *  sql.Date, casteamos las fechas a string 
+ *
+ *  Decidimos crear una tabla Factura donde esta guardara el dato del Cliente y con su ID desde Factura_Producto
+ *  completamos los datos de una venta completa.  
+ *
+ *
  */
 @Entity
 @NamedNativeQuery(

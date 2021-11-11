@@ -11,6 +11,11 @@ import arquiweb.spring.demo.dtos.ClientReportDTO;
 import arquiweb.spring.demo.entities.Client;
 import arquiweb.spring.demo.repositories.ClientRepository;
 
+/**
+*  Este es llamado desde el controlador de Client y sabe a que Repositorio tiene que llamar 
+*  dependiendo la instancia creada de la aplicación.
+*
+*/
 
 @Service
 public

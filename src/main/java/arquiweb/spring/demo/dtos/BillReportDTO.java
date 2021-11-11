@@ -2,6 +2,11 @@ package arquiweb.spring.demo.dtos;
 
 import java.math.BigInteger;
 
+/**
+* Guarda los datos que necesitamos de Bill
+* para asignarlos a la query que los busca en la base de datos 
+*/
+
 public class BillReportDTO {
 
 	private String date;
