@@ -21,7 +21,8 @@ public interface Bill_productRepository extends JpaRepository<Bill_Product, Obje
 	*/
 	
 	@Modifying
-	@Query("SELECT BillProduct FROM BillProduct WHERE id_bill = :id_bill")
+	//@Query(value="UPDATE Client SET name = :name, lastname = :lastname, address = :address WHERE dni = :dni", nativeQuery = true)
+	@Query(value="SELECT b FROM BillProduct b WHERE id_bill = :id_bill", nativeQuery = true)
 	public List<Bill_Product>  getByIdBill(@Param("id_bill") int id_bill);
 	
 }

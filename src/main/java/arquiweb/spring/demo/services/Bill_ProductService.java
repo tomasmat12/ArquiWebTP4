@@ -38,6 +38,7 @@ public class Bill_ProductService {
 		this.billproduct.updateBill_Product(product, bill, price,quantity, id);
 		return true;
 	}*/
+	
 	@Transactional
 	public List<Bill_Product> getByIdBill(int id){
 		return this.billproduct.getByIdBill(id);
