@@ -1,9 +1,12 @@
 package arquiweb.spring.demo.entities;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedNativeQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.SqlResultSetMapping;
 
 import arquiweb.spring.demo.dtos.ClientReportDTO;
@@ -53,7 +56,21 @@ public class Client {
 	
 	@Column
 	private String address;
+	@OneToMany
+	private List<Bill> listBill;
 	
+	
+	
+
+	public Client(int dni, String name, String lastname, String address, List<Bill> listBill) {
+		super();
+		this.dni = dni;
+		this.name = name;
+		this.lastname = lastname;
+		this.address = address;
+		this.listBill = listBill;
+	}
+
 	public Client() {
 		super();
 	}
@@ -87,10 +104,21 @@ public class Client {
 	public int getDni() {
 		return dni;
 	}
+	
+	public List<Bill> getListBill() {
+		return listBill;
+	}
+
+	public void setListBill(List<Bill> listBill) {
+		this.listBill = listBill;
+	}
+
 	@Override
 	public String toString() {
-		return "Client [dni=" + dni + ", name=" + name + ", lastname=" + lastname + ", address=" + address + "]";
+		return "Client [dni=" + dni + ", name=" + name + ", lastname=" + lastname + ", address=" + address
+				+ ", listBill=" + listBill + "]";
 	}
+
 	
 	
 	

@@ -63,6 +63,14 @@ public class Bill {
 	private List<Bill_Product> listBillProduct;
 	
 	
+	public Bill( Client client, Date date, Long total, List<Bill_Product> listBillProduct) {
+		super();
+		this.client = client;
+		this.date = date;
+		this.total = total;
+		this.listBillProduct = listBillProduct;
+	}
+
 	public Bill() {
 		super();
 	}
@@ -95,8 +103,19 @@ public class Bill {
 	public int getId() {
 		return id;
 	}
+
 	@Override
 	public String toString() {
-		return "Bill [id=" + id + ", client=" + client + ", date=" + date + ", total=" + total + "]";
+		return "Bill [id=" + id + ", client=" + client + ", date=" + date + ", total=" + total + ", listBillProduct="
+				+ listBillProduct + "]";
 	}
+
+	public List<Bill_Product> getListBillProduct() {
+		return listBillProduct;
+	}
+
+	public void setListBillProduct(List<Bill_Product> listBillProduct) {
+		this.listBillProduct = listBillProduct;
+	}
+	
 }

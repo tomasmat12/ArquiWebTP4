@@ -49,9 +49,12 @@ public class BillController {
 	}
 	
 	@PostMapping("")
-	public ResponseEntity<Bill> addBillAndProducts(@RequestBody List<Bill_Product> listProd,@RequestBody Bill bill) {
+	public ResponseEntity<Bill> addBillAndProducts(@RequestBody Bill bill) {
 		
-		listProd.forEach(p -> this.billProductService.insert(p));
+		
+		System.out.println(bill);
+		//System.out.println("lista productos " + listProd);
+		// forEach(p -> this.billProductService.insert(p));
 		//this.billService.insert(bill);
 		//this.billProductService.
 		boolean ok = this.billService.insert(bill);
