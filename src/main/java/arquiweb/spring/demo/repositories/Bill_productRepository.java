@@ -13,16 +13,15 @@ import arquiweb.spring.demo.entities.Bill_Product;
 import arquiweb.spring.demo.entities.Product;
 
 public interface Bill_productRepository extends JpaRepository<Bill_Product, Object> {
-/*
+
 	@Modifying
-	//@Query("UPDATE BillProduct SET product = :product, bill = :bill, price = :price, quantity = :quantity WHERE id = :id")
-	/*public void updateBill_Product(@Param("product") Product product, @Param("bill") Bill bill, 
+	@Query(value="UPDATE Bill_Product SET product = :product, bill = :bill, price = :price, quantity = :quantity WHERE id = :id", nativeQuery = true)
+	public void updateBill_Product(@Param("product") Product product, @Param("bill") Bill bill, 
 								  @Param("price") long price, @Param("quantity") int quantity, @Param("id") int id);
-	*/
+	
 	
 	@Modifying
-	//@Query(value="UPDATE Client SET name = :name, lastname = :lastname, address = :address WHERE dni = :dni", nativeQuery = true)
-	@Query(value="SELECT b FROM BillProduct b WHERE id_bill = :id_bill", nativeQuery = true)
+	@Query(value="SELECT * FROM Bill_Product WHERE id_bill = :id_bill", nativeQuery = true)
 	public List<Bill_Product>  getByIdBill(@Param("id_bill") int id_bill);
 	
 }
