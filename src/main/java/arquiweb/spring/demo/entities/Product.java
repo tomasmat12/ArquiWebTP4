@@ -1,5 +1,7 @@
 package arquiweb.spring.demo.entities;
 
+import java.util.List;
+
 import javax.persistence.ColumnResult;
 import javax.persistence.ConstructorResult;
 import javax.persistence.Entity;
@@ -7,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedNativeQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.SqlResultSetMapping;
 
 import arquiweb.spring.demo.dtos.ClientReportDTO;
@@ -48,6 +51,9 @@ public class Product {
 	private String name;
 	private int stock;
 	private Long price;
+	@OneToMany
+	private List<Bill_Product> listBillProduct;
+	
 	
 	public Product() {
 		super();

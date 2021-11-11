@@ -2,6 +2,8 @@ package arquiweb.spring.demo.services;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,4 +31,10 @@ public class BillService {
 	public List<BillReportDTO> report(){
 		return this.billrepository.salesReport();
 	}
+	@Transactional
+	public boolean insert(Bill bill){
+		this.billrepository.save(bill);
+		return true;
+	}
 }
+	

@@ -2,6 +2,7 @@ package arquiweb.spring.demo.entities;
 
 import java.math.BigInteger;
 import java.sql.Date;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.ColumnResult;
@@ -13,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedNativeQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.SqlResultSetMapping;
 
 import arquiweb.spring.demo.dtos.BillReportDTO;
@@ -57,6 +59,8 @@ public class Bill {
 	private Client client;
 	private Date date;
 	private Long total;
+	@OneToMany
+	private List<Bill_Product> listBillProduct;
 	
 	
 	public Bill() {

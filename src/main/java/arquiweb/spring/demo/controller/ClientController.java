@@ -47,7 +47,6 @@ private static Logger LOG = LoggerFactory.getLogger(ClientController.class);
 		if(!ok) {
 			return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
 		}
-		System.out.println(c);
 		return new ResponseEntity<Client>(c, HttpStatus.OK);
 	}
 	
