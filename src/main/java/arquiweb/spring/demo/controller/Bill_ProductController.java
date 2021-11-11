@@ -33,7 +33,7 @@ class Bill_ProductController {
 		return this.billProductService.getClients();
 	}
 	
-	@GetMapping(value = "/{id}")
+	@GetMapping(value = "/bill/{id}")
 	public List<Bill_Product> getByIdBill(@PathVariable( "id" ) int id) {
 		return this.billProductService.getByIdBill(id);
 	}
