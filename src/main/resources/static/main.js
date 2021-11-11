@@ -74,14 +74,13 @@ function addClient() {
 
 function addBill() {
 console.log(productosCarrito);
-	let numDoc = document.querySelector("#dni").value;
-	let date = document.querySelector("#date").value;
-	let total = document.querySelector("#total").value;
+	let numDoc = document.querySelector("#dniC").value;
+	let date = document.querySelector("#dateC").value;
+	let total = document.querySelector("#totalCarrito").value;
 	let carrito = productosCarrito;
 
-	if((numDoc === "" || date === "")){
+	if(numDoc === "" || date === ""){
 			return alert("Todos los campos son requeridos");
-			
 	}
 	
 	let data = {
@@ -91,6 +90,7 @@ console.log(productosCarrito);
 	    "product": carrito 
 	}
 
+return console.log(data);
 	fetch('http://localhost:8080/bill', {
 		method: 'POST',
 		headers: { 'Content-Type': 'application/json' },
@@ -111,6 +111,7 @@ console.log("getP");
 		.then(response => {
 			return response.json()
 		}).then(function(products) {
+			
 			let bodyTable = document.getElementsByClassName('table')[0];
 			let bodyTable2 = document.getElementById('bill-product-list');
 			bodyTable2.style.display = "table";
@@ -132,7 +133,12 @@ console.log("getP");
 				let btn = document.createElement("button");
 				btn.innerHTML = "Carrito";
 				btn.onclick = function(){
-				let algo = document.getElementsByClassName("prodCarrtio" + element['id']);
+					event.preventDefault();
+					let monto = document.getElementById("totalCarrito");
+					let cantidad = document.getElementById("prodCarrtio" + element['id']).value;
+					let montoT = (cantidad * element['price'])
+					monto.value =  montoT + parseInt(monto.value, 10);
+					element.quantity = cantidad;
 					   productosCarrito.push(element);
 				};
 				cell5.appendChild(btn);
@@ -142,9 +148,9 @@ console.log("getP");
 				input.min = 0;
 				input.max = 3;
 				input.style.width = "50px";
-				input.className = "prodCarrtio" + element['id'];
+				input.setAttribute("id", "prodCarrtio" + element['id']);
 				cell6.appendChild(input);
-					})
+			})
 		})
 		.catch(function(error) {
 			console.log(error);
