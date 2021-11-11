@@ -21,6 +21,12 @@ import arquiweb.spring.demo.services.ProductService;
 
 import org.slf4j.Logger;
 
+/*
+*  Dado un pedido REST, el controlador de Product atiende el pedido y llama al servicio requerido.
+*  Objetivo principal mapear las URL para acceder al recurso necesario.
+*/
+
+
 @RestController
 @RequestMapping("/product")
 class ProductController {

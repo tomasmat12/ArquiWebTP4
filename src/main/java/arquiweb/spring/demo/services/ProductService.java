@@ -10,7 +10,11 @@ import arquiweb.spring.demo.dtos.ProductReportDTO;
 import arquiweb.spring.demo.entities.Product;
 import arquiweb.spring.demo.repositories.ProductRepository;
 
-
+/**
+*  Este es llamado desde el controlador de Product y sabe a que Repositorio tiene que llamar 
+*  dependiendo la instancia creada de la aplicación.
+*
+*/
 @Service
 public class ProductService {
 	@Autowired

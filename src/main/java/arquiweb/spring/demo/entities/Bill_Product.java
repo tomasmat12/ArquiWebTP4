@@ -6,6 +6,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+/**
+ *  Abstrae el formato de información de la clase sin depender de la base de datos que tenga  asociada
+ *  En esta clase se mapea la Bill_Product 
+ *  
+ *  Decidimos crear una tabla FacturaProducto para manejar las relaciones entre Producto y Factura,
+ *  para poder asignarles campos utiles para nosotros
+ */
 
 @Entity
 public class Bill_Product {
