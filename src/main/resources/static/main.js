@@ -4,7 +4,6 @@ document.querySelector("#add-Bill").addEventListener("click", addBill);
 //document.querySelector("#bill-product-list").addEventListener("click", addProductosCarrito);
 document.querySelector("#edit-Client").addEventListener("click", editClient);
 document.querySelector("#edit-Product").addEventListener("click", editProduct);
-document.querySelector("#edit-Bill").addEventListener("click", editBill);
 
 window.addEventListener('DOMContentLoaded', (event) => {
     console.log('DOM fully loaded and parsed');
@@ -65,7 +64,7 @@ function addClient() {
 		body: JSON.stringify(data)
 	})
 		.then(response => {
-			getCities(); //revisar 
+			//getCities(); //revisar 
 		})
 		.catch(function(error) {
 			console.log(error);
@@ -96,7 +95,7 @@ function addBill() {
 		body: JSON.stringify(data)
 	})
 		.then(response => {
-			getCities(); //revisar 
+			//getCities(); //revisar 
 		})
 		.catch(function(error) {
 			console.log(error);
@@ -209,7 +208,7 @@ function editClient() {
 		body: JSON.stringify(data)
 	})
 		.then(response => {
-			getCities(); //revisar 
+			//getCities(); //revisar 
 		})
 		.catch(function(error) {
 			console.log(error);
@@ -330,7 +329,6 @@ function getAllBills() {
 			return response.json()
 		}).then(function(response) {
 			let elements = response;
-			console.log('ESTO',elements)
 			showBills(bodyTable, elements);
 		})
 		.catch(function(error) {
@@ -357,9 +355,48 @@ function showBills(bodyTable, elements) {
 		let newText4 = document.createTextNode(element['total']);
 		cell4.appendChild(newText4);
         let cell5 = newRow.insertCell(4);
-		let newText5 = document.createTextNode(element['total']);
-		cell5.appendChild(newText5);
-		let cell6 = newRow.insertCell(5);
+		let btn2 = document.createElement("button");
+		btn2.innerHTML = "Ver Productos";
+		btn2.dataset.toggle = "modal";
+		btn2.dataset.target = "#billProducts";
+		btn2.onclick = function(){
+				document.getElementById("idBillProduct").value = element['id'];
+				getBillProduct(element['id']);
+			};
+		cell5.appendChild(btn2);
+	});
+}
+
+function getBillProduct(id){
+let bodyTable = document.getElementsByClassName('bodyTableBillProduct')[0];
+let bodyTable1 = document.getElementById('myTableBillProduct');
+fetch('http://localhost:8080/billproduct/bill/' + id, {
+			        method: 'GET',
+			    })
+			       .then(response => {
+					return response.json()
+				}).then(function(response) {
+					let elements = response;
+			        showBillProduct(bodyTable, elements);
+				})
+				.catch(function(error) {
+					console.log(error);
+				})
+}
+
+function showBillProduct(bodyTable, elements) {
+    bodyTable.innerHTML = "";
+	elements.forEach(element => {
+		let newRow = bodyTable.insertRow(-1);
+		let cell1 = newRow.insertCell(0);
+		let newText1 = document.createTextNode(element['product']['name']);
+		cell1.appendChild(newText1);
+		let cell2 = newRow.insertCell(1);
+		let newText2 = document.createTextNode(element['product']['stock']);
+		cell2.appendChild(newText2);
+		let cell3 = newRow.insertCell(2);
+		let newText3 = document.createTextNode(element['product']['price']);
+		cell3.appendChild(newText3);
 	});
 }
 
